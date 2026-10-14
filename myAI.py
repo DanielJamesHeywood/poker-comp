@@ -13,6 +13,8 @@ def myAI(state: GameState) -> Action:
         return Action.raise_by(state.my_player.chips_in_stack)
     if card.rank == Rank.JACK and other_card.rank == Rank.JACK:
         return Action.raise_by(state.my_player.chips_in_stack)
+    if card.rank == Rank.TEN and other_card.rank == Rank.TEN:
+        return Action.raise_by(state.my_player.chips_in_stack)
     if card.rank == Rank.ACE and other_card.rank == Rank.KING or card.rank == Rank.KING and other_card.rank == Rank.ACE:
         return Action.raise_by(state.my_player.chips_in_stack)
     return defaultAI(state)
