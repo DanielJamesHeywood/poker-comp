@@ -3,7 +3,8 @@ from poker.game_state import GameState
 
 
 def myAI(state: GameState) -> Action:
-    return defaultAI(state)
+    card, other_card = state.my_player.hole_cards
+    return Action.raise_by(state.my_player.chips_in_stack) if card.rank == other_card.rank else defaultAI(state)
 
 
 def defaultAI(state: GameState) -> Action: # This ai runs if myAI raises an exception, returns an invalid action or takes too long
