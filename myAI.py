@@ -25,7 +25,7 @@ def myAI(state: GameState) -> Action:
         return Action.raise_by(state.my_player.chips_in_stack)
     if card.suit == other_card.suit and card.rank == Rank.QUEEN and other_card.rank == Rank.JACK or card.rank == Rank.JACK and other_card.rank == Rank.QUEEN:
         return Action.raise_by(state.my_player.chips_in_stack)
-    if card.suit == other_card.suit and card.rank == Rank.JACK and other_card.rank == Rank.TEN or card.rank == Rank.TEN and other_card.rank == Rank.QJACKEN:
+    if card.suit == other_card.suit and card.rank == Rank.JACK and other_card.rank == Rank.TEN or card.rank == Rank.TEN and other_card.rank == Rank.JACK:
         return Action.raise_by(state.my_player.chips_in_stack)
     if card.rank == Rank.ACE and other_card.rank == Rank.QUEEN or card.rank == Rank.QUEEN and other_card.rank == Rank.ACE:
         return Action.raise_by(state.my_player.chips_in_stack)
