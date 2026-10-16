@@ -1,5 +1,4 @@
 from poker.action import Action
-from poker.card import Rank
 from poker.game_state import GameState
 
 
