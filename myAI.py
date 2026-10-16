@@ -3,11 +3,10 @@ from poker.game_state import GameState
 
 
 def myAI(state: GameState) -> Action:
-    chips_to_call = max(player.chips_bet for player in state.players) - state.my_player.chips_bet
-    if state.my_player.chips_in_stack // 2 < max(player.chips_bet for player in state.players) - state.my_player.chips_bet:
-        return Action.fold()
-    else:
+    if max(player.chips_bet for player in state.players) - state.my_player.chips_bet < state.my_player.chips_in_stack // 2:
         return Action.raise_by(1)
+    else:
+        return Action.fold()
 
 
 def defaultAI(state: GameState) -> Action: # This ai runs if myAI raises an exception, returns an invalid action or takes too long
